@@ -1,22 +1,22 @@
-// src/components/contact-list
+// src/components/contact-list.js
 
 import React from 'react';
+import { Card } from 'semantic-ui-react';
+import ContactCard from './contact-card';
 
 export default function ContactList({contacts}){
 
-  const list = () => {
+  const cards = () => {
     return contacts.map(contact => {
       return (
-        <li key={contact._id}>{contact.name.first} {contact.name.last}</li>
+        <ContactCard key={contact._id} contact={contact}/>
       )
     })
   }
 
   return (
-    <div>
-      <ul>
-        { list() }
-      </ul>
-    </div>
+    <Card.Group>
+      { cards() }
+    </Card.Group>
   )
 }

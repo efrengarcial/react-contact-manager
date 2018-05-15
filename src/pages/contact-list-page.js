@@ -1,10 +1,9 @@
 // src/pages/contact-list-page
 
 import React, { Component} from 'react';
-import { connect } from 'react-redux';
 import ContactList from '../components/contact-list';
 import { fetchContacts } from '../actions/contact-actions';
-
+import ReduxContainerHOC from '../buildReduxContainer'
 
 class ContactListPage extends Component {
 
@@ -29,4 +28,6 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, {fetchContacts})(ContactListPage);
+//export default connect(mapStateToProps, {fetchContacts})(ContactListPage);
+
+export default ReduxContainerHOC(ContactListPage, mapStateToProps, {fetchContacts})

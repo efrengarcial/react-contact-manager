@@ -5,11 +5,13 @@ import { NavLink, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 import ContactListPage from './pages/contact-list-page';
 import ContactFormPage from './pages/contact-form-page';
+import Clock from './clock';
 
 class App extends Component {
   render() {
     return (
       <Container>
+        <Clock/>
         <div className="ui two item menu">
           <NavLink className="item" activeClassName="active" exact to="/">
             Contacts List
