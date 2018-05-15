@@ -7,13 +7,6 @@ import classnames from 'classnames';
 
 class ContactForm extends Component {
 
-  constructor(props){
-    super(props);
-    this.state={
-      contact: this.props.contact
-    }
-  }
-
   renderField = ({ input, label, type, meta: { touched, error } }) => (
     <Form.Field className={classnames({error:touched && error})}>
       <label>{label}</label>
@@ -21,7 +14,6 @@ class ContactForm extends Component {
       {touched && error && <span className="error">{error.message}</span>}
     </Form.Field>
   )
-
   
 
   render() {
@@ -53,7 +45,7 @@ class ContactForm extends Component {
     }
   }
 
-
+/*
   static getDerivedStateFromProps = (nextProps, prevState) => {
     const { contact } = nextProps;
     if(contact._id !== prevState.contact._id) { // Initialize form only once
@@ -61,9 +53,10 @@ class ContactForm extends Component {
     } else {
       return;
     }
-  }
+  } */
 
 }
+
 
 const validate = (values) => {
   const errors = {name:{}};
@@ -95,4 +88,4 @@ const validate = (values) => {
 
 
 
-export default reduxForm({form: 'contact',validate})(ContactForm);
+export default reduxForm({form: 'contact',validate, initialValues:{name:{}}})(ContactForm);
